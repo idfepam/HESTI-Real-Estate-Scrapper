@@ -1,12 +1,8 @@
-### README
-
----
-
 # HESTI Real Estate Scraper
 
 ## Overview 
 
-This project involves scraping real estate listings from [Flatfy.ua](https://flatfy.ua). The script extracts key details such as title, location, price, size, date, description, and URL of the listing. The data is then stored in a MongoDB database.
+This project involves scraping real estate listings from [Flatfy.ua](https://flatfy.ua). The script extracts key details such as title, location, price, size, date, description, and URL of the listing. The data is then stored in a MongoDB database. After scraping the data, we analyze it to calculate the average price per square meter for each location, categorize the listings, and generate visualizations.
 
 ## Setup Instructions
 
@@ -22,8 +18,8 @@ This project involves scraping real estate listings from [Flatfy.ua](https://fla
 
 1. **Clone the repository**: Clone this repository to your local machine using:
    ```sh
-   cd <repository_directory>
    git clone https://github.com/idfepam/HESTI-Real-Estate-Scrapper.git
+   cd <repository_directory>
    ```
 
 2. **Create a virtual environment**:
@@ -90,6 +86,8 @@ We are scraping data from the real estate section of [Flatfy.ua](https://flatfy.
 
 ## Usage
 
+### Task 1: Scraping
+
 1. **Run the scraper**:
    ```sh
    python scrape_lands.py
@@ -111,6 +109,32 @@ We are scraping data from the real estate section of [Flatfy.ua](https://flatfy.
      db.land_listings.find().pretty()
      ```
 
+### Task 2: Data Analysis and Migration
+
+1. **Run the analysis and migration script**:
+   ```sh
+   python analyze_lands.py
+   ```
+
+   This script will:
+   - Connect to MongoDB and retrieve the data.
+   - Calculate the average price per square meter for each location.
+   - Categorize the listings into "Cheap", "Moderate", and "Expensive".
+   - Update the MongoDB database with the new category field.
+   - Generate and save a bar chart as `top_locations.png`.
+
+### MongoDB Connector
+
+The `connector.py` file is used to establish the MongoDB connection. Here is the content of the `connector.py` file:
+
+```python
+import pymongo
+
+client = pymongo.MongoClient("mongodb://localhost:27017/")
+db = client["real_estate"]
+collection = db["land_listings"]
+```
+
 ### Creating a MongoDB Database Dump
 
 1. **Dump the MongoDB database**:
@@ -122,12 +146,23 @@ We are scraping data from the real estate section of [Flatfy.ua](https://flatfy.
 
 ## Script Explanation
 
+### scrape_lands.py
+
 The script performs the following tasks:
 
 1. **Setup MongoDB connection**: Establishes a connection to the MongoDB database and collection.
 2. **Create WebDriver**: Configures and creates a Firefox WebDriver with a randomized user agent to avoid detection and blocking.
 3. **Scrape Main Page**: Navigates to the main page, extracts the necessary listing data, and stores it in MongoDB.
-4. **Transform Date**: Converts the date from Ukrainian format to a standard format.
+
+### analyze_lands.py
+
+The script performs the following tasks:
+
+1. **Setup MongoDB connection**: Establishes a connection to the MongoDB database and collection.
+2. **Calculate price per square meter**: Computes the price per square meter for each listing.
+3. **Categorize listings**: Adds a new field to categorize the listings into "Cheap", "Moderate", and "Expensive".
+4. **Update MongoDB**: Updates the MongoDB collection with the new category field.
+5. **Generate Bar Chart**: Creates and saves a bar chart showing the average price per square meter for the top 5 most expensive locations.
 
 ## Notes
 
@@ -136,8 +171,6 @@ The script performs the following tasks:
 - Proxies and Captcha Solvers: I could have used proxies and captcha solvers to enhance the scraping process and avoid IP blocking. However, these solutions can be costly. Implementing them could be considered for future enhancements to handle more extensive scraping tasks.
 - Date validation and further cleaning of the data should be handled in the data cleaning phase. This will ensure that all dates and other data points are correctly formatted and valid before being used for analysis or other purposes.
 
-
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-

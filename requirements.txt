@@ -1,3 +1,5 @@
 pymongo
 selenium
 webdriver_manager
+pandas
+matplotlib
