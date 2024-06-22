@@ -93,7 +93,7 @@ We are scraping data from the real estate section of [Flatfy.ua](https://flatfy.
    python scrape_lands.py
    ```
 
-   This will scrape the real estate listings from the specified URL and store them in the MongoDB database.
+   This will scrape the real estate listings from the specified URL and store them in the MongoDB database. Limit of scraped object is set to 10, but it can be changed to any number.
 
 2. **Check the data in MongoDB**:
    - Open the MongoDB shell:
