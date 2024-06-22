@@ -171,11 +171,6 @@ The script performs the following tasks:
 - Proxies and Captcha Solvers: I could have used proxies and captcha solvers to enhance the scraping process and avoid IP blocking. However, these solutions can be costly. Implementing them could be considered for future enhancements to handle more extensive scraping tasks.
 - Date validation and further cleaning of the data should be handled in the data cleaning phase. This will ensure that all dates and other data points are correctly formatted and valid before being used for analysis or other purposes.
 
-<<<<<<< HEAD
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-=======
-
-
->>>>>>> 43d284f9fd792fafc8ae7601473dcaccb381acd0
