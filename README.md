@@ -132,7 +132,7 @@ import pymongo
 
 client = pymongo.MongoClient("mongodb://localhost:27017/")
 db = client["real_estate"]
-collection = db["land_listings"]
+collection = db["land_listings"] 
 ```
 
 ### Creating a MongoDB Database Dump
