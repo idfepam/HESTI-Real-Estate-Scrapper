@@ -4,6 +4,35 @@
 
 This project involves scraping real estate listings from [Flatfy.ua](https://flatfy.ua). The script extracts key details such as title, location, price, size, date, description, and URL of the listing. The data is then stored in a MongoDB database. After scraping the data, we analyze it to calculate the average price per square meter for each location, categorize the listings, and generate visualizations.
 
+## Table of Contents
+
+1. [Overview](#overview)
+2. [Setup Instructions](#setup-instructions)
+   - [Prerequisites](#prerequisites)
+   - [Installing Required Packages](#installing-required-packages)
+   - [Setting Up MongoDB](#setting-up-mongodb)
+3. [Website Structure](#website-structure)
+   - [Flatfy.ua](#flatfyua)
+   - [Key Elements on the Page](#key-elements-on-the-page)
+4. [Usage](#usage)
+   - [Task 1: Scraping](#task-1-scraping)
+   - [Task 2: Data Analysis and Migration](#task-2-data-analysis-and-migration)
+   - [MongoDB Connector](#mongodb-connector)
+   - [Creating a MongoDB Database Dump](#creating-a-mongodb-database-dump)
+5. [Script Explanation](#script-explanation)
+   - [scrape_lands.py](#scrape_landspy)
+   - [analyze_lands.py](#analyze_landspy)
+6. [Notes](#notes)
+7. [Task 3: Automatic Scraper for Nested Website Structure](#task-3-automatic-scraper-for-nested-website-structure)
+   - [Instructions to Run Task 3](#instructions-to-run-task-3)
+   - [Script Explanation](#script-explanation-1)
+   - [Notes](#notes-1)
+8. [Task 4: Working with Google Maps and Polygons](#task-4-working-with-google-maps-and-polygons)
+   - [Usage](#usage-1)
+   - [Example Input](#example-input)
+   - [Script Explanation](#script-explanation-2)
+9. [License](#license)
+
 ## Setup Instructions
 
 ### Prerequisites
