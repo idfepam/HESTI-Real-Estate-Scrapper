@@ -222,6 +222,84 @@ Please note that the last two websites (https://anacortes.municipal.codes/AMC an
 
 These methods could enhance the solution, but each comes with its own set of challenges and requirements.
 
+## Task 4: Working with Google Maps and Polygons
+
+### Objective
+
+Create a Python script that interacts with the Google Maps API to draw polygons on a map and analyze the area within these polygons.
+
+### Requirements
+
+- Use the Google Maps API to draw polygons on a map based on provided coordinates.
+- Calculate and display the area enclosed by each polygon.
+- Allow the user to input coordinates for multiple polygons.
+- Visualize the polygons on a Google Map and save the map as an HTML file.
+
+### Usage
+
+1. **Set Up Google Maps API Key**:
+   - Obtain a Google Maps API key from the [Google Cloud Console](https://console.cloud.google.com/).
+   - Create a `.env` file in the root directory and add your API key:
+     ```
+     GOOGLE_MAPS_API_KEY=YOUR_API_KEY
+     ```
+
+2. **Run the Google Maps Polygon Script**:
+   ```sh
+   python google_maps_polygons.py
+   ```
+
+3. **Input Polygon Data**:
+   - Enter the name of the polygon.
+   - Enter the coordinates in the format `lat,lon` for each vertex of the polygon.
+   - Enter the color for the polygon (optional, default is blue).
+   - When done with the polygon, enter `done`.
+   - You will be prompted to add another polygon or finish.
+
+4. **View Results**:
+   - The script will generate an HTML file named `polygons_map.html` with the visualized polygons.
+   - The script will automatically open the HTML file in your default web browser.
+   - The area of each polygon will be calculated and displayed in square kilometers.
+
+### Example Input
+
+```sh
+Enter polygon name (or 'done' to finish): First
+Enter coordinates as 'lat,lon' (or 'done' to finish this polygon): 37.7749, -122.4194
+Enter coordinates as 'lat,lon' (or 'done' to finish this polygon): 37.7749, -122.4144
+Enter coordinates as 'lat,lon' (or 'done' to finish this polygon): 37.7699, -122.4144
+Enter coordinates as 'lat,lon' (or 'done' to finish this polygon): 37.7699, -122.4194
+Enter coordinates as 'lat,lon' (or 'done' to finish this polygon): done
+Enter polygon color (default is 'blue'): red
+Add another polygon? (y/n): y
+Enter polygon name (or 'done' to finish): Second
+Enter coordinates as 'lat,lon' (or 'done' to finish this polygon): 37.7649, -122.4294
+Enter coordinates as 'lat,lon' (or 'done' to finish this polygon): 37.7649, -122.4244
+Enter coordinates as 'lat,lon' (or 'done' to finish this polygon): 37.7599, -122.4244
+Enter coordinates as 'lat,lon' (or 'done' to finish this polygon): 37.7599, -122.4294
+Enter coordinates as 'lat,lon' (or 'done' to finish this polygon): done
+Enter polygon color (default is 'blue'): blue
+Add another polygon? (y/n): n
+The area of First is 0.31 square kilometers.
+The area of Second is 0.31 square kilometers.
+```
+
+### Script Explanation
+
+#### google_maps_polygons.py
+
+1. **Environment Setup**:
+   - Load API key from `.env` file.
+2. **Calculate Area**:
+   - Calculate the area of the polygon using geodesic distances.
+3. **Get User Input**:
+   - Prompt the user to input polygon data.
+4. **Create Google Map**:
+   - Draw polygons on Google Map using `gmplot`.
+   - Save the map as an HTML file.
+   - Automatically open the HTML file in a web browser.
+
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
