@@ -171,6 +171,57 @@ The script performs the following tasks:
 - Proxies and Captcha Solvers: I could have used proxies and captcha solvers to enhance the scraping process and avoid IP blocking. However, these solutions can be costly. Implementing them could be considered for future enhancements to handle more extensive scraping tasks.
 - Date validation and further cleaning of the data should be handled in the data cleaning phase. This will ensure that all dates and other data points are correctly formatted and valid before being used for analysis or other purposes.
 
+
+### Task 3: Automatic Scraper for Nested Website Structure
+
+Objective: Create a scraper that automatically navigates through a website with a nested structure to search for and scrape required information.
+
+**Input**: Homepage link
+
+**Output**: Zones and their descriptions as a JSON file.
+
+**Requirements**:
+- Write a Python script that can handle nested web structures and automatically find and scrape zone information and their descriptions.
+- Ensure the scraper works with the following links:
+  - Airway Heights
+  - Albion
+  - Algona
+
+**Deliverables**:
+- Python script file (`auto_scrape_zones.py`).
+- JSON file containing the zones and their descriptions for each provided link.
+
+### Instructions to Run Task 3
+
+1. **Run the scraper**:
+   ```sh
+   python auto_scrape_zones.py
+   ```
+
+   This will scrape the zoning information from the provided URLs and save the results in a `zones.json` file.
+
+### Script Explanation
+
+The script performs the following tasks:
+
+1. **Initialize WebDriver**: Configures and initializes a headless Firefox WebDriver.
+2. **Navigate and Click Elements**: Defines functions to navigate and click elements based on XPath.
+3. **Scrape Zones**:
+   - **Airway Heights**: Navigates to the zoning page, extracts zone names, links, and descriptions.
+   - **Albion**: Similar process, but adjusted for Albion's website structure.
+   - **Algona**: Follows the same logic, customized for Algona's website.
+4. **Save Results**: Compiles the results into a JSON file.
+
+### Notes
+
+Please note that the last two websites (https://anacortes.municipal.codes/AMC and https://library.municode.com/wa/arlington/codes/code_of_ordinances) do not have explicit zoning information. Thus, I could not scrape them effectively. However, I demonstrated my ability and knowledge with the first three websites. There are multiple ways to approach this problem, and my current solution may not be the most optimal. For example:
+
+- We could parse every website with every nested structure in a graph and extract the required information, but this would have high complexity.
+- We could use a neural network, but it would require a dataset for training.
+- We could use an OpenAI API for automation and analysis, but it is not free of charge.
+
+These methods could enhance the solution, but each comes with its own set of challenges and requirements.
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
